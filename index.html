@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyStack | Collaborative Note Sharing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/assets/index-C5cpVFy1.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DUgpOlDa.css">
+</head>
+<body>
+
+  <div id="page-auth" class="page active">
+    <!-- Sign In Page -->
+    <div id="auth-signin" class="auth-page active">
+      <div class="auth-wrapper">
+        <div class="auth-left">
+          <div class="auth-card">
+            <div class="auth-header">
+              <h1 class="auth-title">Welcome back</h1>
+              <p class="auth-subtitle">Sign in to your account</p>
+            </div>
+
+            <form id="form-login" class="auth-form" autocomplete="on">
+              <div class="form-group">
+                <label for="login-email" class="form-label">Email address</label>
+                <input type="email" id="login-email" class="form-input" placeholder="you@university.edu" required />
+              </div>
+              <div class="form-group">
+                <label for="login-password" class="form-label">Password</label>
+                <input type="password" id="login-password" class="form-input" placeholder="••••••••" required />
+              </div>
+              <div class="form-error" id="login-error"></div>
+              <button type="submit" class="btn-auth">Sign in →</button>
+            </form>
+
+            <div class="auth-divider">
+              <span>Don't have an account?</span>
+            </div>
+
+            <button class="btn-auth-secondary" id="btn-to-signup">Create account</button>
+          </div>
+        </div>
+
+        <div class="auth-right">
+          <div class="auth-gradient-top"></div>
+          <div class="auth-gradient-bottom"></div>
+          <img src="/assets/2-BZwHTgMG.png" alt="StudyStack" class="auth-image" />
+          <div class="auth-content">
+            <div class="auth-visual">
+              <div class="auth-logo-right">Study<span>Stack</span></div>
+              <h2 class="auth-visual-title">Upload. Discover.<br><em>Learn together.</em></h2>
+            </div>
+            <p class="auth-visual-text">Collaborate and discover precious materials for last minute prep</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Up Page -->
+    <div id="auth-signup" class="auth-page">
+      <div class="auth-wrapper">
+        <div class="auth-left">
+          <div class="auth-card">
+            <div class="auth-header">
+              <h1 class="auth-title">Create account</h1>
+            </div>
+
+            <form id="form-signup" class="auth-form" autocomplete="on">
+              <div class="form-group">
+                <label for="signup-name" class="form-label">Full name</label>
+                <input type="text" id="signup-name" class="form-input" placeholder="Alex Johnson" required />
+              </div>
+              <div class="form-group">
+                <label for="signup-email" class="form-label">Email address</label>
+                <input type="email" id="signup-email" class="form-input" placeholder="you@university.edu" required />
+              </div>
+              <div class="form-group">
+                <label for="signup-password" class="form-label">Password</label>
+                <input type="password" id="signup-password" class="form-input" placeholder="min. 6 characters" required />
+              </div>
+              <div class="form-error" id="signup-error"></div>
+              <button type="submit" class="btn-auth">Create account →</button>
+            </form>
+
+            <div class="auth-divider">
+              <span>Already have an account?</span>
+            </div>
+
+            <button class="btn-auth-secondary" id="btn-to-signin">Sign in</button>
+          </div>
+        </div>
+
+        <div class="auth-right">
+          <div class="auth-gradient-top"></div>
+          <div class="auth-gradient-bottom"></div>
+          <img src="/assets/2-BZwHTgMG.png" alt="StudyStack" class="auth-image" />
+          <div class="auth-content">
+            <div class="auth-visual">
+              <div class="auth-logo-right">Study<span>Stack</span></div>
+              <h2 class="auth-visual-title">Upload. Discover.<br><em>Learn together.</em></h2>
+            </div>
+            <p class="auth-visual-text">Join thousands of students sharing and discovering notes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-app" class="page">
+    <div class="app-layout">
+      
+      <aside class="sidebar" id="app-sidebar">
+        <div class="sidebar-header">
+          <div class="logo">Study<span>Stack</span></div>
+          <button class="sidebar-toggle" id="sidebar-hide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+        </div>
+        <div class="sidebar-content">
+          <div class="sidebar-section">
+            <div class="sidebar-label">Explore</div>
+            <nav class="nav-list">
+              <div class="nav-item active"><i class="icon">🏠</i> Home</div>
+              <div class="nav-item"><i class="icon">🔖</i> Saved Notes</div>
+            </nav>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-label">Filter by subject</div>
+            <div id="subject-filters" class="filter-list">
+              <button class="filter-chip active" data-subject="">All subjects</button>
+              </div>
+          </div>
+          
+          <div class="sidebar-section">
+            <div class="sidebar-label">Popular tags</div>
+            <div id="tag-filters" class="note-tags" style="padding: 0 5px;">
+              </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        
+        <header class="topbar">
+          <div class="topbar-inner">
+            <div class="topbar-left">
+              <button id="sidebar-toggle" class="sidebar-toggle">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+              </button>
+              <div class="search-wrap">
+                <span class="search-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </span>
+                <input type="text" id="search-input" placeholder="Search notes, subjects, tags…" />
+              </div>
+            </div>
+            
+            <div class="topbar-right">
+              <button class="btn-upload" id="btn-open-upload">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                Upload notes
+              </button>
+              <div class="profile-menu-wrapper">
+                <button class="user-avatar" id="user-avatar">?</button>
+                <div class="profile-dropdown" id="profile-dropdown">
+                  <div class="profile-header">
+                    <div class="profile-info">
+                      <div class="profile-name" id="dropdown-name">User</div>
+                      <div class="profile-email" id="dropdown-email">user@example.com</div>
+                    </div>
+                  </div>
+                  <button class="profile-logout" id="btn-logout">Log out</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="app-body">
+          <div class="notes-header">
+            <h1 id="notes-title">All notes</h1>
+            <div class="sort-wrap">
+              <select id="sort-select" style="padding: 8px; border-radius: 8px; border: 1px solid var(--border);">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="title">A → Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="notes-grid" id="notes-grid">
+            <div class="notes-empty" id="notes-empty" style="display:none">
+              <p>No notes found. Try adjusting your filters.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="upload-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Upload New Notes</h2>
+        <button class="modal-close" id="close-upload">✕</button>
+      </div>
+      
+      <form id="upload-form">
+        <div class="field">
+          <label>Title <span style="color:var(--red)">*</span></label>
+          <input type="text" id="upload-title" placeholder="e.g. Thermodynamics Chapter 3" required />
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 0 2rem;">
+          <div class="field" style="margin-bottom: 1rem;">
+            <label>Subject <span style="color:var(--red)">*</span></label>
+            <input type="text" id="upload-subject" placeholder="e.g. Physics" required />
+          </div>
+          <div class="field" style="margin-bottom: 1rem;">
+            <label>Semester / Year</label>
+            <input type="text" id="upload-year" placeholder="e.g. Fall 2025" />
+          </div>
+        </div>
+        
+        <div class="field">
+          <label>Tags (comma separated)</label>
+          <input type="text" id="upload-tags" placeholder="exam, midterms, summary, important" />
+        </div>
+        
+        <div class="field">
+          <label>Description</label>
+          <textarea id="upload-desc" placeholder="Brief description of the notes..."></textarea>
+        </div>
+        
+        <div class="field">
+          <label>PDF File <span style="color:var(--red)">*</span></label>
+          <input type="file" id="upload-file" accept=".pdf" required />
+        </div>
+        
+        <div class="field-error" id="upload-error"></div>
+        
+        <div class="modal-footer">
+          <button type="button" class="filter-chip" id="cancel-upload">Cancel</button>
+          <button type="submit" class="btn-primary" id="btn-upload-submit">Upload Notes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-overlay" id="viewer-modal">
+    <div class="modal modal-wide" style="height: 90vh; display: flex; flex-direction: column;">
+      <div class="modal-header">
+        <div>
+          <h2 id="viewer-title">Note title</h2>
+          <div id="viewer-meta" style="font-size: 0.8rem; color: var(--ink-3);"></div>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center">
+          <a class="btn-primary" id="viewer-download" target="_blank" style="text-decoration: none; font-size: 0.85rem;">Download</a>
+          <button class="modal-close" id="close-viewer">✕</button>
+        </div>
+      </div>
+      
+      <div class="viewer-body">
+        <div class="viewer-left" style="background: var(--bg-3);">
+          <iframe id="pdf-iframe" src="" title="PDF viewer" style="width:100%; height:100%; border:none;"></iframe>
+        </div>
+
+        <aside class="comments-panel">
+          <div class="comments-header">Comments</div>
+          <div class="comments-list" id="comments-list">
+            <div class="comments-loading">Loading discussion…</div>
+          </div>
+          
+          <form class="comment-form" id="comment-form">
+            <textarea id="comment-input" placeholder="Write a helpful comment..." required></textarea>
+            <button type="submit" id="btn-post-comment">→</button>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+</body>
+</html>
