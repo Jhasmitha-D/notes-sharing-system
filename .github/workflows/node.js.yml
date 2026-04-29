@@ -33,3 +33,9 @@ jobs:
         # Provide fallback environment variables for Vite build if needed
         VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
         VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+
+    - name: Deploy to GitHub Pages
+      if: matrix.node-version == '22.x' # Ensures deployment only happens once
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: dist
